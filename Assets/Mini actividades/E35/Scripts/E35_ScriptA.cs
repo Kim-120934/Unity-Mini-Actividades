@@ -2,15 +2,40 @@ using UnityEngine;
 
 public class E35_ScriptA : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    public float velocidad = 5f;
+    private Vector3 direccion;
 
-    private void Update()
+
+    void Start()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontal, vertical, 0f);
-
-        transform.Translate(movement * speed * Time.deltaTime);
     }
+
+    void Update()
+    {
+        direccion = new Vector3(0, 0, 0);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            direccion.y = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            direccion.y = -1;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            direccion.x = -1;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            direccion.x = 1;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        transform.position = transform.position + direccion * velocidad * Time.fixedDeltaTime;
+    }
+
 }

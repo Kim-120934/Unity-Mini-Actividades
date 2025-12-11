@@ -13,7 +13,6 @@ public class E : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         direccion = new Vector3(0, 0, 0);

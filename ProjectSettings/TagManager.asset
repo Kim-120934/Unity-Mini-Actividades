@@ -7,6 +7,7 @@ TagManager:
   - Ally
   - Enemy
   - Jugador
+  - Boton
   layers:
   - Default
   - TransparentFX
